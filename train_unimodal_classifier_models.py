@@ -81,8 +81,7 @@ def build_unimodal_classifier(X, Y):
     input_dimensions = X.shape[1]
     model = unimodal_model(input_dimensions)
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-    model.fit(X,Y,epochs=1,verbose=1)
-    y_pred = model.predict_classes(X)
+    model.fit(X,Y,epochs=150,verbose=1)
 
     #obtain the embedding of the intermediate layer
     intermediate_layer_model = Model(inputs=model.input, outputs=model.layers[1].output)
